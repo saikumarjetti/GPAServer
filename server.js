@@ -7,11 +7,11 @@ const app = express();
 const helmet = require("helmet");
 
 const loginRouter = require("./src/routes/login");
-let os = require("os");
+// let os = require("os");
 
-let networkInterfaces = os.networkInterfaces();
-let ip = networkInterfaces["en0"];
-ip = ip[0]["family"] === "IPv6" ? ip[1]["address"] : ip[0]["address"];
+// let networkInterfaces = os.networkInterfaces();
+// let ip = networkInterfaces["en0"];
+// ip = ip[0]["family"] === "IPv6" ? ip[1]["address"] : ip[0]["address"];
 console.log(`ip = ${ip}`);
 // console.log(os.networkInterfaces());
 
@@ -27,7 +27,7 @@ console.log(`ip = ${ip}`);
 //     console.error("Error connecting to MongoDB:", error);
 //   });
 
-const allowedOrigins = ["http://localhost:5173", `http://${ip}:5173`];
+const allowedOrigins = ["http://localhost:5173"];
 
 app.use(
   cors({
