@@ -1,8 +1,8 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
-const fs = require("fs");
-const util = require("util");
+// const fs = require("fs");
+// const util = require("util");
 const PORT = 8001;
 const app = express();
 const helmet = require("helmet");
