@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const fs = require("fs");
 const util = require("util");
-const PORT = 8000;
+const PORT = 8001;
 const app = express();
 const helmet = require("helmet");
 // const multer = require("multer");
@@ -35,17 +35,17 @@ function LoadFileData() {
   // console.log("Image List:", imageList);
   // console.log("Similar Images JSON:", similarImagesJson);
 }
-mongoose
-  .connect("mongodb://localhost:27017/GPA", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to MongoDB successfully");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+// mongoose
+//   .connect("mongodb://localhost:27017/GPA", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to MongoDB successfully");
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
 
 const allowedOrigins = ["http://localhost:5173", `http://${ip}:5173`];
 
