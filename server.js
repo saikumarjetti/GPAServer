@@ -5,10 +5,15 @@ const cors = require("cors");
 const PORT = 8001;
 const app = express();
 const helmet = require("helmet");
+const dataLoader = require("./dataLoader");
 
 const loginRouter = require("./src/routes/login");
-// let os = require("os");
+const imagesRouter = require("./src/routes/images");
 
+// let os = require("os");
+function LoadFileData() {
+  dataLoader.readAllImagesList();
+}
 // let networkInterfaces = os.networkInterfaces();
 // let ip = networkInterfaces["en0"];
 // ip = ip[0]["family"] === "IPv6" ? ip[1]["address"] : ip[0]["address"];
@@ -47,7 +52,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.use("/", loginRouter);
+app.use("/", imagesRouter);
 
 app.listen(PORT, () => {
   console.log(`server listening at port ${PORT}....`);
+  LoadFileData();
 });
