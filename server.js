@@ -12,7 +12,7 @@ const loginRouter = require("./src/routes/login");
 // let networkInterfaces = os.networkInterfaces();
 // let ip = networkInterfaces["en0"];
 // ip = ip[0]["family"] === "IPv6" ? ip[1]["address"] : ip[0]["address"];
-console.log(`ip = ${ip}`);
+// console.log(`ip = ${ip}`);
 // console.log(os.networkInterfaces());
 
 // mongoose
