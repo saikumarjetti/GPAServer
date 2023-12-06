@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 
+require("dotenv").config();
+
 const PORT = 8001;
 const app = express();
 const helmet = require("helmet");
@@ -13,19 +15,28 @@ const uri =
 function LoadFileData() {
   dataLoader.readAllImagesList();
 }
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL);
+    console.log("Connect to MongoDB successfully");
+  } catch (error) {
+    console.log("Connect failed " + error.message);
+  }
+};
+connectDB();
 
 const allowedOrigins = ["0.0.0.0/0"];
-mongoose
-  .connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to MongoDB successfully");
-  })
-  .catch((error) => {
-    console.error("Error connecting to MongoDB:", error);
-  });
+// mongoose
+//   .connect(uri, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("Connected to MongoDB successfully");
+//   })
+//   .catch((error) => {
+//     console.error("Error connecting to MongoDB:", error);
+//   });
 
 app.use(
   cors({
