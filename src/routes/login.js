@@ -3,7 +3,9 @@ const router = express.Router();
 
 router.get("/test", async (req, res) => {
   try {
-    return res.status(200).json({ message: "good to go." });
+    return res
+      .status(200)
+      .json({ message: "good to go.", folder: `${process.cwd()}` });
   } catch {}
 });
 
